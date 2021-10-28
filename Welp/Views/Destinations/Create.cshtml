@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+@using Welp.Models
+@model Welp.Models.Destination
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  <input type="submit" value="Create">
+}

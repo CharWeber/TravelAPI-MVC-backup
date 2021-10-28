@@ -1,0 +1,25 @@
+@{
+  ViewData["Title"] = "Details";
+  Layout = "_Layout";
+}
+@using Welp.Models
+
+<h2>Destination Info</h2>
+<ul>
+    <li>ID: @Model.DestinationId</li>
+    <li>Name: @Model.Name</li>
+</ul>
+<br>
+
+@foreach(Review review in @Model.Reviews)
+{
+  <p>@Html.ActionLink($"{review.Comment}", "Details", "Reviews", new {id = review.ReviewId})</p>
+}
+
+<p>@Model.Reviews.Count</p>
+
+<a href="/Destinations/Edit/@(Model.DestinationId)"><p>Edit</p></a>
+<br>
+<a href="/Destinations"><p>Return</p></a>
+
+<a href="/Destinations/Delete/@(Model.DestinationId)"><p>Delete Destination</p></a>

@@ -1,0 +1,22 @@
+@{
+  ViewData["Title"] = "Home Page";
+  Layout = "_Layout";
+  }
+@using Welp.Models
+
+<h1> Welcome to Welp!</h1>
+
+<h3> See a list of reviews below: </h3>
+
+<ol>
+  @foreach (Review review in Model)
+  {
+    <ul>
+      
+      <li>Comment: @Html.ActionLink($"{review.Comment}", "Details", new {id =review.ReviewId}); </li>
+      <li>Rating: @review.Rating</li>
+    </ul>
+  }
+
+<h3> Or add a review yourself! </h3>
+<h3 class="btn btn-dark">@Html.ActionLink("Add Review", "Create")</h3>
